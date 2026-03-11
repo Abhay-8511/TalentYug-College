@@ -18,7 +18,7 @@
 
 html{
   scroll-behavior:smooth;
-  overflow-x:hidden;
+  /* overflow-x:hidden; */
 
 }
 
@@ -1630,6 +1630,8 @@ justify-content:space-between;
 gap:0px;
 padding:0px 0px 10px 12px;
 margin-right: 0px;
+position:relative;
+z-index:5;
 }
 
 .hero-left{
@@ -1670,11 +1672,27 @@ margin-top:10px;
 transform:translateX(0%);
 
 }
+.sticky-marquee-bg{
+position:sticky;
+top:11.5vh;
+height:10vh;
+width:100%;
+background:#EE6983;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
 
+z-index:1;
+}
 
 /* VS SECTION */
 .vs-section{
 min-height:70vh;
+z-index: 13;
+position:relative;
+z-index:10;
+margin-top:0vh;
 }
 .vs-layout{
 position:sticky;
