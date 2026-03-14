@@ -1678,12 +1678,11 @@ justify-content:center;
 @media (max-width: 500px){
   
 
-header{
-max-width:100%;
-padding:10px 16px;
-display:flex;
-align-items:center;
-justify-content:space-between;
+header,
+header.scrolled{
+max-width:auto;
+padding:14px 16px;
+border-radius:0;
 }
 .logo span{
 font-size:19px;
@@ -1774,8 +1773,8 @@ width:100%;
 
 .left-big,
 .right-big{
-max-width:120px;
-top:120px;
+max-width:150px;
+top:100px;
 }
 
 .vs-badge{
@@ -1790,19 +1789,19 @@ height:220px;
 
 /* LEFT DOTS */
 
-.ld1{ top:150px; left:83px; max-width:90px;}
-.ld2{ top:185px; left:105px; max-width:90px;}
-.ld3{ top:220px; left:110px; max-width:80px;}
-.ld4{ top:255px; left:100px; max-width:90px;}
-.ld5{ top:290px; left:75px; max-width:90px;}
+.ld1{ top:150px; left:115px; max-width:130px;}
+.ld2{ top:185px; left:130px; max-width:130px;}
+.ld3{ top:220px; left:135px; max-width:110px;}
+.ld4{ top:255px; left:130px; max-width:120px;}
+.ld5{ top:290px; left:115px; max-width:130px;}
 
 /* RIGHT DOTS */
 
-.rd1{ top:150px; right:83px; max-width:90px;}
-.rd2{ top:185px; right:105px; max-width:90px;}
-.rd3{ top:220px; right:110px; max-width:80px;}
-.rd4{ top:255px; right:100px; max-width:90px;}
-.rd5{ top:290px; right:75px; max-width:90px;}
+.rd1{ top:150px; right:115px; max-width:130px;}
+.rd2{ top:185px; right:130px; max-width:130px;}
+.rd3{ top:220px; right:135px; max-width:120px;}
+.rd4{ top:255px; right:130px; max-width:130px;}
+.rd5{ top:290px; right:115px; max-width:120px;}
 
 .vs-title h2{
 font-size:20px;
@@ -1896,6 +1895,28 @@ margin-bottom:10px;
 .testimonials-header h2{
 text-align:center;
 }
+.testimonial-cards-wrapper{
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+-webkit-overflow-scrolling:touch;
+}
+.testimonial-cards{
+display:flex;
+gap:30px;
+flex-wrap:nowrap;
+}
+.testimonial-item{
+flex-wrap:nowrap;
+scroll-snap-align:center;
+}
+.testimonial-cards-wrapper::-webkit-scrollbar{
+display:none;
+}
+
+.testimonial-cards-wrapper{
+scrollbar-width:none;
+}
+
 
 .cta4{
 display:block;
@@ -2650,11 +2671,15 @@ navItems.forEach(link=>{
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
 
+if (window.innerWidth > 500) {
   if (scrollY > 50) {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");
   }
+} else {
+  header.classList.remove("scrolled");
+}
 
   if (vsSection) {
     const rect = vsSection.getBoundingClientRect();
