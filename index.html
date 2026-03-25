@@ -30,9 +30,15 @@ overflow-x:hidden;
   box-sizing: border-box;
 }
 
+/* main {
+  max-width: 2000px;
+  margin: auto;
+} */
 body {
   font-family: 'Geist', sans-serif;
   background: #FEF2DD;
+    max-width: 100%;
+
   overflow-x: hidden;
 }
 
@@ -58,6 +64,7 @@ header {
 }
 header.scrolled{
 max-width:92%;
+margin-top: 20px;
 padding:12px 18px;
 border-radius:50px;
 backdrop-filter:blur(14px);
@@ -153,13 +160,13 @@ transition:0.3s;
 .hero::after{
   content:"";
   position:absolute;
-  left: 300px;
+  left: 200px;
   top:100px;
   width:600px;
   height:500px;
   background:#FAD075;
   filter:blur(100px);
-  opacity:0.3;
+  opacity:0.2;
   border-radius:50%;
   z-index:11;
 }
@@ -373,7 +380,8 @@ cursor: pointer;
   opacity: 0;
 }
 
-.left-dots img, .right-dots img { position: absolute;transform-origin:center;
+.left-dots img,
+.right-dots img { position: absolute;transform-origin:center;
  transition: all 0.1s linear; }
 
 .ld1{ top:150px; left:230px; max-width:420px;} 
@@ -396,7 +404,12 @@ cursor: pointer;
   z-index: 11;
   padding: 210px 0px 160px;
   background: #FEF2DD;
+  min-height: 100vh;
   height: auto;
+  overflow: hidden;
+  transform: scale(0.85);
+  transform-origin: top center;
+
 }
  .features-bg{
   position: absolute;
@@ -431,8 +444,6 @@ cursor: pointer;
   display: flex;
   gap: 20px;
 }
-
-
 
 .feature-card{
   padding: 40px 40px;
@@ -551,7 +562,10 @@ cursor: pointer;
   background: #FEF2DD;
   z-index: 11;
   overflow: hidden;
+  min-height: 100vh;
   height: 1100px;
+    transform: scale(0.85);
+  transform-origin: top center;
 }
 
 .process-bg{
@@ -565,11 +579,19 @@ cursor: pointer;
   
 }
 
-.process-container{
+/* .process-container{
   position: relative;
   max-width: 1300px;
   margin: auto;
   z-index: 2;
+} */
+.process-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  max-width: 1400px;
+  margin: auto;
+  position: relative;
 }
 
 .step-card{
@@ -577,11 +599,13 @@ cursor: pointer;
   max-width: 380px;
   padding: 24px 24px 24px 65px;
   border-radius: 28px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);  transition:transform 0.55s cubic-bezier(.22,1,.36,1),
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12); 
+  transition:transform 0.55s cubic-bezier(.22,1,.36,1),
   box-shadow 0.55s ease;
   transform-origin: center;
   z-index: 2;
 }
+
 
 .step-card:hover{
   transform: scale(1.06) translateY(-6px);
@@ -690,7 +714,9 @@ display:none;
   background:#FEF2DD;
   overflow:hidden;
   text-align:center;
-  z-index:11;      
+  z-index:11;  
+    transform: scale(0.95);
+  transform-origin: top center;    
 }
 
 .pricing-bg-text{
@@ -867,6 +893,8 @@ box-shadow:5px 5px 10px rgba(0,0,0,0.15);
   position:relative;
   height: auto;
   z-index:11;
+  margin-right: 0px;
+
 }
 
 
@@ -908,14 +936,14 @@ box-shadow:5px 5px 10px rgba(0,0,0,0.15);
 }
 
 .testimonials-wrapper{
-  max-width:1310px;
+  max-width:auto;
   margin:auto;
   display:flex;
   gap:80px;
 }
 
 .testimonial-side{
-  max-width:280px;
+  max-width:100%;
 }
 
 .quote-img{
@@ -926,7 +954,7 @@ box-shadow:5px 5px 10px rgba(0,0,0,0.15);
 .side-text{
   font-size:26px;
   line-height:1.4;
-  margin-bottom:0px;
+  margin-bottom:10px;
 }
 
 .pagination{
@@ -953,7 +981,7 @@ box-shadow:5px 5px 10px rgba(0,0,0,0.15);
 
 .testimonial-cards{
   display:flex;
-  gap:30px;
+  gap:20px;
   transition:0.6s ease;
 }
 
@@ -962,6 +990,7 @@ box-shadow:5px 5px 10px rgba(0,0,0,0.15);
 }
 
 .testimonial-card{
+  margin-right: 0px;
   background:#fff;
   padding:35px;
   border-radius:20px 20px 20px 0px;
@@ -979,12 +1008,12 @@ box-shadow:5px 5px 10px rgba(0,0,0,0.15);
 }
 
 .testimonial-card p{
-  font-size:16px;
+  font-size:15px;
   line-height:1.6;
   color:#333;
 
   display:-webkit-box;
-  -webkit-line-clamp:4;
+  -webkit-line-clamp:5;
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
@@ -1055,7 +1084,7 @@ box-shadow:5px 5px 10px rgba(0,0,0,0.15);
 }
 
 .faq-left span{
-  background: linear-gradient(410deg, #FF0008 0%, #518300 49%, #009DFF 100%);
+  background: linear-gradient(410deg, #FF0008 0%, #518300 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1187,6 +1216,7 @@ box-shadow:5px 5px 10px rgba(0,0,0,0.15);
 .footer-inner{
   max-width: 800px;
   margin: auto;
+    margin-top: 50px;
   padding: 10px 0 40px;
   color: #7B7B7B;
 }
@@ -1223,13 +1253,13 @@ box-shadow:5px 5px 10px rgba(0,0,0,0.15);
 }
 
 .footer-logo span {
-  font-size: 38px;
+  font-size: 40px;
   font-weight: 700;
   color: #1F3F68;
 }
 
 .footer-logo img{
-  max-width: 60px;
+  max-width:60px;
 }
 
 .footer-bottom{
@@ -1244,8 +1274,86 @@ box-shadow:5px 5px 10px rgba(0,0,0,0.15);
 .testimonials-wrapper,
 .faq-container,
 .footer-inner {
-  width: 90%;
-  max-width: 1300px;
+  width: 100%;
+max-width: min(90%, 2040px);
+}
+@media (min-width: 1600px) {
+
+  .hero {
+    padding: 100px 150px;
+    background: #FFFAF6;
+  }
+
+  .hero-left h1 {
+    font-size: 80px;
+  }
+
+  .hero-left p {
+    font-size: 28px;
+  }
+  
+  .process-section {
+    padding: 140px 0;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .process-container {
+    max-width: 1200px;
+  }
+
+  .process-bg {
+    max-width: 900px;
+    opacity: 0.85;
+  }
+
+
+  .step-card {
+    max-width: 320px;
+    padding: 18px 18px 18px 55px;
+  }
+
+  .step-card h3 {
+    font-size: 17px;
+  }
+
+  .step-card p {
+    font-size: 11.5px;
+  }
+
+
+  .step1 { top: 30px; left: 0; }
+
+  .step2 { top: 30px; right: 0; }
+
+  .step3 { top: 220px; left: 35%; }
+
+  .step4 { top: 420px; left: 18%; }
+
+  .step5 { top: 420px; right: 18%; }
+
+  .step6 { top: 620px; right: 0; }
+
+  .step7 { top: 920px; left: 0; }
+
+
+  .features-container,
+  .process-container,
+  .pricing-wrapper,
+  .testimonials-wrapper,
+  .faq-container,
+  .footer-inner {
+    max-width: 1800px;
+  }
+
+  .feature-card h3 {
+    font-size: 40px;
+  }
+
+  .price-card {
+    max-width: 420px;
+  }
+
 }
 
 @media (max-width: 1024px){
@@ -1797,7 +1905,7 @@ padding:80px 20px 60px;
 }
 .hero-left h1 {
   width: 100%;
-  font-size: 38px;
+  font-size: clamp(32px, 4vw, 80px);
   font-weight: 600;
   line-height: 1.5;
   text-align: center;
@@ -2407,7 +2515,7 @@ text-align:center;
 
   </div>
 
-<svg class="process-lines" viewBox="0 0 1300 900" preserveAspectRatio="none">
+<svg class="process-lines" viewBox="0 0 1300 900" preserveAspectRatio="xMidYMid meet">
 
   <path d="M350 240 H999" />
   <path d="M1060 250 V410" />
@@ -2675,7 +2783,7 @@ text-align:center;
 <section class="faq-section">
 
   <!-- Background Waves -->
-  <img src="img/college/design_c.png" class="faq-bg" alt="FAQ Background Design"loading="lazy">
+  <img src="img/college/design_c.svg" class="faq-bg" alt="FAQ Background Design"loading="lazy">
 
   <div class="faq-container">
 
@@ -2826,8 +2934,8 @@ text-align:center;
       <div class="footer-col" id="contact">
         <h3>Contacts</h3>
         <p>Call <a href="tel:+91 8210597576">+91 8210597576</a></p>
-        <p>Email <a href="mailto:connect@talentyug.in">connect@talentyug.in</a></p>
-        <p>Bihta, Patna,Bihar-801103</p>
+        <p>Email:- <a href="mailto:connect@talentyug.in">connect@talentyug.in</a></p>
+        <p>Bihta, Patna, Bihar- 801103</p>
       </div>
 
       <!-- Logo -->
@@ -2840,7 +2948,7 @@ text-align:center;
 
     <!-- Bottom Line -->
     <div class="footer-bottom">
-      Copyright 2026-27 |All Rights Reserved |Privacy Policy |
+      Copyright 2026-27 | All Rights Reserved | Privacy Policy |
       Terms Of Service
     </div>
 
